@@ -67,8 +67,7 @@ class PresidentGuesser(Guesser):
         self._lookup = defaultdict(dict)
             
     def __call__(self, question, n_guesses=1):
-        # Update this code so that we can have a different president than Joe
-        # Biden
+        # Update this code so that we can have a different president than Joe Biden
         candidates = ["Joseph R. Biden"]
 
         if len(candidates) == 0:
@@ -82,5 +81,7 @@ if __name__ == "__main__":
     pg.train(kPRESIDENT_DATA["train"])
     
     for date in kPRESIDENT_DATA["dev"]:
-        print(date, pg(date)["guess"])
+        #Note: Am I really intended to just look at the first item in the list? 
+        # Why are the guesses in a list of dictionaries with only 1 item?
+        print(date, pg(date)[0]["guess"]) 
         

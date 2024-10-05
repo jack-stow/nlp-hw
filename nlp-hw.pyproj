@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3745f3a8-8f05-4e23-9e7e-bb4eeb01293d}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>presidents\eval.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>presidents</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>Global|PythonCore|3.11</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <TestFramework>Pytest</TestFramework>
+    <CommandLineArguments>--evaluate=guesser --guesser_type=President --questions=presidents --question_source='toy'</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="dan\dan_guesser.py" />
+    <Compile Include="dan\dan_test.py" />
+    <Compile Include="dan\eval.py" />
+    <Compile Include="dan\guesser.py" />
+    <Compile Include="dan\parameters.py" />
+    <Compile Include="dan\params.py" />
+    <Compile Include="dan_test.py" />
+    <Compile Include="feateng\buzzer.py" />
+    <Compile Include="feateng\eval.py" />
+    <Compile Include="feateng\features.py" />
+    <Compile Include="feateng\gpr_guesser.py" />
+    <Compile Include="feateng\guesser.py" />
+    <Compile Include="feateng\logistic_buzzer.py" />
+    <Compile Include="feateng\params.py" />
+    <Compile Include="lr_pytorch.py" />
+    <Compile Include="lr_pytorch_test.py" />
+    <Compile Include="lr_sgd_qb\buzzer.py" />
+    <Compile Include="lr_sgd_qb\features.py" />
+    <Compile Include="lr_sgd_qb\guesser.py" />
+    <Compile Include="lr_sgd_qb\params.py" />
+    <Compile Include="lr_sgd_qb\toylogistic_buzzer.py" />
+    <Compile Include="lr_sgd_qb\toylogistic_test.py" />
+    <Compile Include="presidents\buzzer.py" />
+    <Compile Include="presidents\eval.py" />
+    <Compile Include="presidents\guesser.py" />
+    <Compile Include="presidents\params.py" />
+    <Compile Include="presidents\president_guesser.py" />
+    <Compile Include="presidents\president_test.py" />
+    <Compile Include="project\qbmodel.py" />
+    <Compile Include="qanta_util\qbdata.py" />
+    <Compile Include="qanta_util\__init__.py" />
+    <Compile Include="sequence_buzzer\buzzer.py" />
+    <Compile Include="sequence_buzzer\test.py" />
+    <Compile Include="tfidf.py" />
+    <Compile Include="tfidf\eval.py" />
+    <Compile Include="tfidf\guesser.py" />
+    <Compile Include="tfidf\params.py" />
+    <Compile Include="tfidf\toytfidf_guesser.py" />
+    <Compile Include="tfidf\toytfidf_test.py" />
+    <Compile Include="tfidf_guesser.py" />
+    <Compile Include="tfidf_guesser\buzzer.py" />
+    <Compile Include="tfidf_guesser\eval.py" />
+    <Compile Include="tfidf_guesser\features.py" />
+    <Compile Include="tfidf_guesser\gpr_guesser.py" />
+    <Compile Include="tfidf_guesser\guesser.py" />
+    <Compile Include="tfidf_guesser\guesser_test.py" />
+    <Compile Include="tfidf_guesser\logistic_buzzer.py" />
+    <Compile Include="tfidf_guesser\params.py" />
+    <Compile Include="tfidf_guesser\tfidf_guesser.py" />
+    <Compile Include="tfidf_guesser_test.py" />
+    <Compile Include="tfidf_test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dan\requirements.txt" />
+    <Content Include="feateng\requirements.txt" />
+    <Content Include="presidents\requirements.txt" />
+    <Content Include="sequence_buzzer\explainer_figure.png" />
+    <Content Include="tfidf\requirements.txt" />
+    <Content Include="tfidf_guesser\requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dan" />
+    <Folder Include="feateng" />
+    <Folder Include="lr_sgd_qb" />
+    <Folder Include="presidents" />
+    <Folder Include="project" />
+    <Folder Include="qanta_util" />
+    <Folder Include="sequence_buzzer" />
+    <Folder Include="tfidf" />
+    <Folder Include="tfidf_guesser" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.11" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

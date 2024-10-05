@@ -112,3 +112,12 @@ venv.bak/
 /.vs/VSWorkspaceState.json
 /.vs/nlp-hw/FileContentIndex/4122fe5e-8bfb-47dd-9171-630b353ce898.vsidx
 /.vs/nlp-hw/FileContentIndex
+/data/qanta.dev.evidence.json
+/data/qanta.dev.evidence.text.json
+/data/qanta.dev.json
+/data/qanta.test.evidence.json
+/data/qanta.test.evidence.text.json
+/data/qanta.test.json
+/data/qanta.train.evidence.json
+/data/qanta.train.evidence.text.json
+/data/qanta.train.json

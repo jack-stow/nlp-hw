@@ -2,6 +2,9 @@ import time
 
 from guesser import Guesser
 from collections import defaultdict
+from datetime import datetime
+import dateutil.parser as dparser
+
 
 kPRESIDENT_DATA = {"train": [
   {"start": 1789, "stop": 1797, "name": "George Washington"},
@@ -62,18 +65,26 @@ kPRESIDENT_DATA = {"train": [
           {"text": "Who was president on Thu Apr 30 17:00:00 1789?", "page": 'George Washington', "qanta_id":209}]
 }
 
+
 class PresidentGuesser(Guesser):
     def train(self, training_data):
+        """Builds a lookup dictionary of presidents by their years in office."""
         self._lookup = defaultdict(dict)
-            
-    def __call__(self, question, n_guesses=1):
-        # Update this code so that we can have a different president than Joe Biden
-        candidates = ["Joseph R. Biden"]
+        for president in training_data:
+            for year in range(president["start"], president["stop"]):
+                self._lookup[year] = president["name"]
 
-        if len(candidates) == 0:
-            return [{"guess": ""}]
-        else:
-            return [{"guess": x} for x in candidates]
+    def __call__(self, question, n_guesses=1):
+        """Answers the question by identifying the president based on the given date."""
+        # Parse the datetime from the question
+        str_date = question.replace("Who was president on ", "").replace("?", "")
+        # Convert string datetime into datetime object
+        date_time = datetime.strptime(str_date, "%a %b %d %H:%M:%S %Y")
+        year = date_time.year
+
+        # Find the president for the given year. if no president found, return "Unknown"
+        president = self._lookup.get(year, "Unknown")
+        return [{"guess": president}] if president else [{"guess": "Unknown"}]
         
 if __name__ == "__main__":
     pg = PresidentGuesser()
@@ -83,5 +94,5 @@ if __name__ == "__main__":
     for date in kPRESIDENT_DATA["dev"]:
         #Note: Am I really intended to just look at the first item in the list? 
         # Why are the guesses in a list of dictionaries with only 1 item?
-        print(date, pg(date)[0]["guess"]) 
+        print(date, pg(date["text"])[0]["guess"]) 
         

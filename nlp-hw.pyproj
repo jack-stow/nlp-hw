@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3745f3a8-8f05-4e23-9e7e-bb4eeb01293d}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>presidents\eval.py</StartupFile>
+    <StartupFile>presidents\president_guesser.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>presidents</WorkingDirectory>
     <OutputPath>.</OutputPath>
